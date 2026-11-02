@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Data
+data/
+*.npz
+*.npy
+
+# Training outputs
+training_logs/
+results/
+runs/
+checkpoints/
+*.pth
+*.pt
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
