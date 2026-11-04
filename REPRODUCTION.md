@@ -8,28 +8,26 @@ Reproduction of Wen et al., "ESP-Fi HAR: A low-power WiFi CSI dataset for Ad-Hoc
 2. `unrar x ESP-Fi_dataset.rar full_data/` (inside the repo; `full_data/` is gitignored)
    Gives `EnvironmentNo.<k>(<room>)/{mat,csv}/X-Y-Z-M.*`
 
-Naming (X-Y-X-M):
-- X: Scene (1 corridor, 2 office, 3 boardrooms, 4 labratory)
-- Y: Person (1 - 8)
-- Z: Activity
-- M: Trial (1 - 10)
-There is a discrepancy between the README and paper. In the paper, activity IDs are given by
-- 1: Run
-- 2: Walk
-- 3: Jump
-- 4: Squat
-- 5: Arm Wave
-- 6: Turn
-- 7: Fall
-In the README, activity IDs are given by
-- 1: Run
-- 2: Fall
-- 3: Walk
-- 4: Turn
-- 5: Jump
-- 6: Squat
-- 7: Arm wave
-In this reproduction, we follow the paper's listing of activity IDs.
+## Naming `X-Y-Z-M`
+
+- **X**: Scene (1 = corridor, 2 = office, 3 = boardroom, 4 = laboratory)
+- **Y**: Person (1–8)
+- **Z**: Activity
+- **M**: Trial (1–10)
+
+The paper and the original README assign activity IDs differently:
+
+| ID | Paper | README |
+| --- | --- | --- |
+| 1 | Run | Run |
+| 2 | Walk | Fall |
+| 3 | Jump | Walk |
+| 4 | Squat | Turn |
+| 5 | Arm wave | Jump |
+| 6 | Turn | Squat |
+| 7 | Fall | Arm wave |
+
+This reproduction follows the paper's activity IDs.
 
 ## Protocols
 
@@ -61,12 +59,16 @@ Open choices, not stated in the paper:
 
 Within-scene LOSO accuracy %  (ours mean±std [folds x seeds]  |  paper)
 
-ResNet18  (batch 4)
-  Corridor   57.86 ± 11.76  [8 x 1]   |  63.59 ± 14.91
-  Office     73.57 ±  8.05  [8 x 1]   |  70.11 ± 19.60
-  Meeting    73.93 ±  5.60  [8 x 1]   |  65.53 ± 18.22
-  Lab        53.57 ±  9.60  [8 x 1]   |  58.33 ± 22.73
+ResNet18  (batch 4):
+| Reproduced | Paper |
+| --- | --- |
+| Corridor   57.86 ± 11.76  [8 x 1]   |  63.59 ± 14.91 |
+| Office     73.57 ±  8.05  [8 x 1]   |  70.11 ± 19.60 |
+| Meeting    73.93 ±  5.60  [8 x 1]   |  65.53 ± 18.22 |
+| Lab        53.57 ±  9.60  [8 x 1]   |  58.33 ± 22.73 |
 
-ResNet18  (batch 32)
-  Office     69.64 ± 13.80  [8 x 1]   |  70.11 ± 19.60
+ResNet18  (batch 32):
+| Reproduced | Paper |
+| --- | --- |
+| Office     69.64 ± 13.80  [8 x 1]   |  70.11 ± 19.60 |
 
