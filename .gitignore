@@ -14,6 +14,7 @@ full_data/
 # Training outputs
 training_logs/
 results/
+results_checks/
 runs/
 checkpoints/
 *.pth
