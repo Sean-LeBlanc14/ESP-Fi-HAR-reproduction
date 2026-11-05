@@ -46,7 +46,6 @@ or 100 (GRU, LSTM, Transformer); checkpoint = first epoch with the best
 training accuracy; seed 666; `cudnn.benchmark=True`.
 
 Open choices, not stated in the paper:
-- Batch size: upstream code uses 4, upstream README recommends 32. Default 4.
 - Std across folds: sample vs population unknown; we report sample std.
 
 ## Reference runs
@@ -55,7 +54,7 @@ Open choices, not stated in the paper:
 | --- | --- | --- |
 | 2026-11-02 | Upstream `run.py --model ResNet18` on shipped fold (Meeting Room, person 1 out), RTX 2000 Ada laptop | acc 81.43%, macro-F1 81.78%, best epoch 48 |
 
-## Results (so far)
+## Results
 
 Within-scene LOSO accuracy %  (ours mean±std [folds x seeds]  |  paper)
 
@@ -70,5 +69,8 @@ ResNet18  (batch 4):
 ResNet18  (batch 32):
 | Reproduced | Paper |
 | --- | --- |
+| Corridor   56.96 ±  9.33  [8 x 1]   |  63.59 ± 14.91 |
 | Office     69.64 ± 13.80  [8 x 1]   |  70.11 ± 19.60 |
+| Meeting    73.21 ±  9.47  [8 x 1]   |  65.53 ± 18.22 |
+| Lab        49.29 ± 13.14  [8 x 1]   |  58.33 ± 22.73 |
 
